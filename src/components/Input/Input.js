@@ -5,9 +5,10 @@ import styles from "./Input.styles";
 const Input = ({ onAddProduct }) => {
   const [productName, setProductName] = useState("");
   const [productPrice, setProductPrice] = useState("");
+  const date = new Date();
 
   function handleAddList() {
-    onAddProduct({ productName, productPrice });
+    onAddProduct({ productName, productPrice,date });
     setProductName("");
     setProductPrice("");
   }

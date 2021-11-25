@@ -9,5 +9,8 @@ const styles = StyleSheet.create({
     width: 100,
     height: 30,
   },
+  buttonTab: {
+    backgroundColor: "#78909c",
+  },
 });
 export default styles;

@@ -6,6 +6,7 @@ import ProductCard from "./components/ProductCard/ProductCard";
 
 export default function App() {
   const [products, setProducts] = useState([]);
+  const [type, setType] = useState(0);
 
   const rendertoDoList = ({ item }) => <ProductCard product={item} />;
 
@@ -13,20 +14,40 @@ export default function App() {
     setProducts([...products, product]);
   }
 
+  products.sort(function (a, b) {
+    switch (type) {
+      case 0:
+        return a.productPrice - b.productPrice;
+      case 1:
+        return b.productPrice - a.productPrice;
+      case 2:
+        return b.date - a.date;
+      default:
+        break;
+    }
+  });
+
+  let buttonz = ["Artan Fiyat", "Azalan Fiyat", "Tarih"];
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.button}>
-        <Button title="Artan Fiyat" />
-        <Button title="Azalan Fiyat" />
-        <Button title="Tarih" />
+        {buttonz.map((item, index) => (
+          <Button
+            title={item}
+            onPress={() => setType(index)}
+            isActive={index == type}
+            key={index}
+          />
+        ))}
       </View>
-      <View style={{ flex: 2 }}>
-        <FlatList
-          keyExtractor={(item) => item.id}
-          data={products}
-          renderItem={rendertoDoList}
-        />
-      </View>
+
+      <FlatList
+        keyExtractor={(item, index) => {
+          return index.toString();
+        }}
+        data={products}
+        renderItem={rendertoDoList}
+      />
       <Input onAddProduct={onAddProduct} />
     </SafeAreaView>
   );
@@ -34,12 +55,11 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#fff",
     flex: 1,
   },
   button: {
-    flex: 1,
     flexDirection: "row",
     justifyContent: "space-evenly",
+    paddingVertical: 10,
   },
 });

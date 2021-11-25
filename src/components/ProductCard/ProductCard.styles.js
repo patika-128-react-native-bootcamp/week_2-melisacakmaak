@@ -2,7 +2,6 @@ import React from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
 
 const styles = StyleSheet.create({
-  container: {},
   textCard: {
     flex: 1,
     padding: 10,
@@ -14,11 +13,12 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 18,
     fontWeight: "400",
+    color: "#34515e",
   },
-  price:{
-      fontSize:20,
-      fontWeight:'bold'
-  }
+  price: {
+    fontSize: 20,
+    fontWeight: "bold",
+  },
 });
 
 export default styles;

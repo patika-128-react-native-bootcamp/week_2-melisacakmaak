@@ -4,6 +4,8 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: "#ffff",
     paddingHorizontal: 10,
+    borderTopWidth: 1,
+    borderColor: "#babdbe",
   },
   input: {
     borderWidth: 1,
@@ -12,10 +14,10 @@ const styles = StyleSheet.create({
     borderColor: "#eceff1",
     justifyContent: "center",
     fontSize: 18,
+    backgroundColor: "#eceff1",
   },
   button: {
     top: 10,
-    borderWidth: 1,
     borderRadius: 10,
     justifyContent: "center",
     alignItems: "center",

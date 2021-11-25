@@ -1,10 +1,10 @@
 import React from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import { Text, TouchableOpacity } from "react-native";
 import styles from "./Button.style";
 
-const Button = ({title}) => {
+const Button = ({ title, onPress,isActive }) => {
   return (
-    <TouchableOpacity style={styles.button}>
+    <TouchableOpacity style={[styles.button,isActive && styles.buttonTab]} onPress={onPress}>
       <Text style={{ textAlign: "center" }}>{title}</Text>
     </TouchableOpacity>
   );
