@@ -27,11 +27,11 @@ export default function App() {
     }
   });
 
-  let buttonz = ["Artan Fiyat", "Azalan Fiyat", "Tarih"];
+  let filterButton = ["Artan Fiyat", "Azalan Fiyat", "Tarih"];
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.button}>
-        {buttonz.map((item, index) => (
+        {filterButton.map((item, index) => (
           <Button
             title={item}
             onPress={() => setType(index)}
